@@ -11,6 +11,7 @@
     <name>Spring Boot auto-configuration module for "pl.allegro.tech:embedded-elasticsearch"</name>
 
     <modules>
+        <module>embedded-elasticsearch-spring-boot-starter-sample</module>
     </modules>
 
 </project>
