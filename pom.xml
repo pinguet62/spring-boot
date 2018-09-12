@@ -12,6 +12,7 @@
 
     <modules>
         <module>embedded-elasticsearch-spring-test</module>
+        <module>embedded-elasticsearch-spring-boot-starter</module>
         <module>embedded-elasticsearch-spring-boot-starter-sample</module>
     </modules>
 
