@@ -17,14 +17,14 @@ Using the *starter*:
 * all transitive dependencies are auto-included: `pl.allegro.tech:embedded-elasticsearch` and `fr.pinguet62.embeddedelasticsearch:embedded-elasticsearch-spring-test`;
 * the `TestExecutionListener` is auto-registered: `@TestExecutionListeners(value = EmbeddedElasticsearchTestExecutionListener.class, mergeMode = MERGE_WITH_DEFAULTS)`.
 
-The default host is `localhost:9200`.  
+The default host is `localhost:9300`.  
 You should update your test configuration to connect to the embedded server.
 
 ### Testing
 
 Example based on [Spring Data Elasticsearch](https://docs.spring.io/spring-data/elasticsearch/docs/current/reference/html/):
 ```java
-@SpringBootTest(properties = "spring.data.elasticsearch.cluster-nodes = localhost:9200")
+@SpringBootTest(properties = "spring.data.elasticsearch.cluster-nodes = localhost:9300")
 class MyTest {}
 ```
 

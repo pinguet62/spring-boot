@@ -14,7 +14,7 @@ import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertThat;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = SampleConfig.class, properties = "spring.data.elasticsearch.cluster-nodes = localhost:9200")
+@SpringBootTest(classes = SampleConfig.class, properties = "spring.data.elasticsearch.cluster-nodes = localhost:9300")
 @EmbeddedElasticsearch(version = "5.6.0", indexs = {
 //        @EmbeddedElasticsearchIndex(name = "cars", types = {
 //                @EmbeddedElasticsearchType(name = "car", definition = "classpath:car-mapping.json"),

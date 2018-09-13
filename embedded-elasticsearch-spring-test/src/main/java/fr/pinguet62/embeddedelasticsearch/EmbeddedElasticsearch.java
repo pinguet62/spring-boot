@@ -12,7 +12,7 @@ public @interface EmbeddedElasticsearch {
 
     String version();
 
-    int port() default 9200; // TODO or 9300?
+    int port() default 9300;
 
     /**
      * @see org.springframework.boot.autoconfigure.data.elasticsearch.ElasticsearchProperties#clusterName
