@@ -1,6 +1,7 @@
 package fr.pinguet62.embeddedelasticsearch;
 
 import org.apache.commons.logging.Log;
+import org.elasticsearch.client.Client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.Ordered;
 import org.springframework.core.io.Resource;
@@ -13,7 +14,6 @@ import pl.allegro.tech.embeddedelasticsearch.IndexSettings;
 
 import static org.apache.commons.logging.LogFactory.getLog;
 import static org.springframework.core.annotation.AnnotationUtils.findAnnotation;
-import static pl.allegro.tech.embeddedelasticsearch.PopularProperties.CLUSTER_NAME;
 import static pl.allegro.tech.embeddedelasticsearch.PopularProperties.TRANSPORT_TCP_PORT;
 
 public class EmbeddedElasticsearchTestExecutionListener extends AbstractTestExecutionListener {
@@ -24,6 +24,9 @@ public class EmbeddedElasticsearchTestExecutionListener extends AbstractTestExec
 
     @Autowired
     private ResourceLoader resourceLoader;
+
+    @Autowired
+    private Client client;
 
     /**
      * Should be executed before {@link org.springframework.boot.autoconfigure.data.elasticsearch.ElasticsearchAutoConfiguration}.
@@ -44,16 +47,21 @@ public class EmbeddedElasticsearchTestExecutionListener extends AbstractTestExec
 
         Builder eeBuilder = EmbeddedElastic.builder()
                 .withElasticVersion(config.version())
-                .withSetting(TRANSPORT_TCP_PORT, config.port())
-                .withSetting(CLUSTER_NAME, config.clusterName());
+                .withSetting(TRANSPORT_TCP_PORT, config.port());
+        client.settings()
+                .getAsMap().entrySet().stream()
+                .filter(e -> !e.getKey().equals("network.server")) // TODO Check why and/or how to ignore
+                .forEach(e -> eeBuilder.withSetting(e.getKey(), e.getValue()));
+
         for (EmbeddedElasticsearchIndex index : config.indexs()) {
             IndexSettings.Builder indexBuilder = IndexSettings.builder();
             for (EmbeddedElasticsearchType type : index.types()) {
                 Resource resource = resourceLoader.getResource(type.definition());
                 indexBuilder = indexBuilder.withType(type.name(), resource.getInputStream());
             }
-            eeBuilder = eeBuilder.withIndex(index.name(), indexBuilder.build());
+            eeBuilder.withIndex(index.name(), indexBuilder.build());
         }
+
         elasticsearch = eeBuilder.build();
 
         logger.debug("Starting embedded Elasticsearch...");

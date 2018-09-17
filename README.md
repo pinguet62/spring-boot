@@ -20,6 +20,9 @@ Using the *starter*:
 The default host is `localhost:9300`.  
 You should update your test configuration to connect to the embedded server.
 
+The Elasticsearch connection server is based on [`org.elasticsearch.client.Client`](https://artifacts.elastic.co/javadoc/org/elasticsearch/client/transport/6.4.0/org/elasticsearch/transport/client/package-summary.html) bean.  
+If you are using Spring Boot Data Elasticsearch, the [ElasticsearchAutoConfiguration](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/data/elasticsearch/ElasticsearchAutoConfiguration.html) will provide a bean for you.
+
 ### Testing
 
 Example based on [Spring Data Elasticsearch](https://docs.spring.io/spring-data/elasticsearch/docs/current/reference/html/):
@@ -44,7 +47,5 @@ class MyTest {}
 
 ## TODO
 
-* Support all configurations
 * Support method annotation
-* Configuration from bean (from AutoConfiguration?)
 * *data set* initialisation

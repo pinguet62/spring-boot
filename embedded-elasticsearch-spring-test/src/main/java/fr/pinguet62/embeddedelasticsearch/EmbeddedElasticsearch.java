@@ -14,11 +14,6 @@ public @interface EmbeddedElasticsearch {
 
     int port() default 9300;
 
-    /**
-     * @see org.springframework.boot.autoconfigure.data.elasticsearch.ElasticsearchProperties#clusterName
-     */
-    String clusterName() default "elasticsearch";
-
     EmbeddedElasticsearchIndex[] indexs() default {};
 
 }
