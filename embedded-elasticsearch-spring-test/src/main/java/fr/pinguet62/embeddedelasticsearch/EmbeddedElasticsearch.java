@@ -14,6 +14,6 @@ public @interface EmbeddedElasticsearch {
 
     int port() default 9300;
 
-    EmbeddedElasticsearchIndex[] indexs() default {};
+    EmbeddedElasticsearchIndex[] indexes() default {};
 
 }

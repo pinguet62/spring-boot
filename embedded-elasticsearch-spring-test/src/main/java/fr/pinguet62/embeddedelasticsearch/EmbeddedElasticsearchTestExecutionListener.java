@@ -53,7 +53,7 @@ public class EmbeddedElasticsearchTestExecutionListener extends AbstractTestExec
                 .filter(e -> !e.getKey().equals("network.server")) // TODO Check why and/or how to ignore
                 .forEach(e -> eeBuilder.withSetting(e.getKey(), e.getValue()));
 
-        for (EmbeddedElasticsearchIndex index : config.indexs()) {
+        for (EmbeddedElasticsearchIndex index : config.indexes()) {
             IndexSettings.Builder indexBuilder = IndexSettings.builder();
             for (EmbeddedElasticsearchType type : index.types()) {
                 Resource resource = resourceLoader.getResource(type.definition());

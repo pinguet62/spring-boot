@@ -33,7 +33,7 @@ class MyTest {}
 
 You can register the Elasticsearch configuration by annotation:
 ```java
-@EmbeddedElasticsearch(version = "5.6.0", indexs = {
+@EmbeddedElasticsearch(version = "5.6.0", indexes = {
         @EmbeddedElasticsearchIndex(name = "cars", types = {
                 @EmbeddedElasticsearchType(name = "car", definition = "classpath:car-mapping.json"),
         }),

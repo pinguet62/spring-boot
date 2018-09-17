@@ -15,7 +15,7 @@ import static org.junit.Assert.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = SampleConfig.class, properties = "spring.data.elasticsearch.cluster-nodes = localhost:9300")
-@EmbeddedElasticsearch(version = "5.6.0", indexs = {
+@EmbeddedElasticsearch(version = "5.6.0", indexes = {
 //        @EmbeddedElasticsearchIndex(name = "cars", types = {
 //                @EmbeddedElasticsearchType(name = "car", definition = "classpath:car-mapping.json"),
 //        }),
