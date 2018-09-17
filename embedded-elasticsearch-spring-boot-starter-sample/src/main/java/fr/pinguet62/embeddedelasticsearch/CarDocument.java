@@ -9,17 +9,17 @@ import org.springframework.data.elasticsearch.annotations.Field;
 import static org.springframework.data.elasticsearch.annotations.FieldType.Keyword;
 
 @Data
-@Document(indexName = "books", type = "paper_book")
+@Document(indexName = "cars", type = "car")
 @Builder
-public class PaperBookDocument {
+public class CarDocument {
     @Id
     private String id;
 
     @Field(type = Keyword)
-    private String author;
+    private String manufacturer;
 
     @Field(type = Keyword)
-    private String title;
+    private String model;
 
     private String description;
 }
