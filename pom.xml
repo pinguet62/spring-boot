@@ -20,6 +20,7 @@
         <module>spring-boot-autoconfigure</module>
         <module>spring-boot-starter-embedded-elasticsearch</module>
         <module>spring-boot-starter-embedded-elasticsearch-sample</module>
+        <module>spring-boot-starter-wiremock</module>
     </modules>
 
     <dependencyManagement>
@@ -28,6 +29,11 @@
                 <groupId>pl.allegro.tech</groupId>
                 <artifactId>embedded-elasticsearch</artifactId>
                 <version>2.7.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.tomakehurst</groupId>
+                <artifactId>wiremock-standalone</artifactId>
+                <version>2.24.1</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -24,3 +24,25 @@
 })
 class MyTest {}
 ```
+
+## [WireMock](http://wiremock.org/docs/junit-rule)
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>fr.pinguet62</groupId>
+        <artifactId>spring-boot-starter-wiremock</artifactId>
+        <scope>test</scope>
+    </dependency>
+</dependencies>
+```
+
+```java
+@WireMockApi(api = "facebook", propertyKey = "api.facebook.port")
+// Spring boot annotations...
+class MyTest {
+    @Test
+    @WireMockCallMock(api = "facebook", method = GET, urlMatching = "/second", status = 200, bodyResource = "classpath:fr/pinguet62/springboot/wiremock/test.txt")
+    public void myTest() {}
+}
+```

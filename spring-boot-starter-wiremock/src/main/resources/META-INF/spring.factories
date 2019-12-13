@@ -1,0 +1,2 @@
+org.springframework.test.context.TestExecutionListener=\
+  fr.pinguet62.springboot.wiremock.WireMockTestExecutionListener
