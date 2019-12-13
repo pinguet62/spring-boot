@@ -1,5 +1,7 @@
 # *Spring Boot* auto-configuration modules
 
+![https://github.com/pinguet62/spring-boot/actions?workflow=CI](https://github.com/pinguet62/spring-boot/workflows/CI/badge.svg)
+
 ## [Embedded Elasticsearch](https://github.com/allegro/embedded-elasticsearch)
 
 ```xml
@@ -7,6 +9,7 @@
     <dependency>
         <groupId>fr.pinguet62</groupId>
         <artifactId>spring-boot-starter-embedded-elasticsearch</artifactId>
+        <version>LATEST</version>
         <scope>test</scope>
     </dependency>
 </dependencies>
@@ -32,6 +35,7 @@ class MyTest {}
     <dependency>
         <groupId>fr.pinguet62</groupId>
         <artifactId>spring-boot-starter-wiremock</artifactId>
+        <version>LATEST</version>
         <scope>test</scope>
     </dependency>
 </dependencies>
