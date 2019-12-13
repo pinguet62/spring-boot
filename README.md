@@ -1,37 +1,17 @@
-# *Spring Boot test* integration for *embedded-elasticsearch*
+# *Spring Boot* auto-configuration modules
 
-## Usage
-
-### Configuration
+## [Embedded Elasticsearch](https://github.com/allegro/embedded-elasticsearch)
 
 ```xml
 <dependencies>
     <dependency>
-        <groupId>fr.pinguet62.embeddedelasticsearch</groupId>
-        <artifactId>embedded-elasticsearch-spring-boot-starter</artifactId>
+        <groupId>fr.pinguet62</groupId>
+        <artifactId>spring-boot-starter-embedded-elasticsearch</artifactId>
+        <scope>test</scope>
     </dependency>
 </dependencies>
 ```
 
-Using the *starter*:
-* all transitive dependencies are auto-included: `pl.allegro.tech:embedded-elasticsearch` and `fr.pinguet62.embeddedelasticsearch:embedded-elasticsearch-spring-test`;
-* the `TestExecutionListener` is auto-registered: `@TestExecutionListeners(value = EmbeddedElasticsearchTestExecutionListener.class, mergeMode = MERGE_WITH_DEFAULTS)`.
-
-The default host is `localhost:9300`.  
-You should update your test configuration to connect to the embedded server.
-
-The Elasticsearch connection server is based on [`org.elasticsearch.client.Client`](https://artifacts.elastic.co/javadoc/org/elasticsearch/client/transport/6.4.0/org/elasticsearch/transport/client/package-summary.html) bean.  
-If you are using Spring Boot Data Elasticsearch, the [ElasticsearchAutoConfiguration](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/data/elasticsearch/ElasticsearchAutoConfiguration.html) will provide a bean for you.
-
-### Testing
-
-Example based on [Spring Data Elasticsearch](https://docs.spring.io/spring-data/elasticsearch/docs/current/reference/html/):
-```java
-@SpringBootTest(properties = "spring.data.elasticsearch.cluster-nodes = localhost:9300")
-class MyTest {}
-```
-
-You can register the Elasticsearch configuration by annotation:
 ```java
 @EmbeddedElasticsearch(version = "5.6.0", indexes = {
         @EmbeddedElasticsearchIndex(name = "cars", types = {
@@ -44,8 +24,3 @@ You can register the Elasticsearch configuration by annotation:
 })
 class MyTest {}
 ```
-
-## TODO
-
-* Support method annotation
-* *data set* initialisation
