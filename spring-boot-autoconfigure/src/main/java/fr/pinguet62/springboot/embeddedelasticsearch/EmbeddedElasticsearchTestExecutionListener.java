@@ -12,6 +12,7 @@ import pl.allegro.tech.embeddedelasticsearch.EmbeddedElastic;
 import pl.allegro.tech.embeddedelasticsearch.EmbeddedElastic.Builder;
 import pl.allegro.tech.embeddedelasticsearch.IndexSettings;
 
+import static java.util.concurrent.TimeUnit.MINUTES;
 import static org.apache.commons.logging.LogFactory.getLog;
 import static org.springframework.core.annotation.AnnotationUtils.findAnnotation;
 import static pl.allegro.tech.embeddedelasticsearch.PopularProperties.TRANSPORT_TCP_PORT;
@@ -47,7 +48,8 @@ public class EmbeddedElasticsearchTestExecutionListener extends AbstractTestExec
 
         Builder eeBuilder = EmbeddedElastic.builder()
                 .withElasticVersion(config.version())
-                .withSetting(TRANSPORT_TCP_PORT, config.port());
+                .withSetting(TRANSPORT_TCP_PORT, config.port())
+                .withStartTimeout(config.startTimeout(), MINUTES);
         client.settings()
                 .getGroups(".").entrySet().stream()
                 .filter(e -> !e.getKey().equals("network.server")) // TODO Check why and/or how to ignore
