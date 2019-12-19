@@ -49,7 +49,7 @@ public class EmbeddedElasticsearchTestExecutionListener extends AbstractTestExec
                 .withElasticVersion(config.version())
                 .withSetting(TRANSPORT_TCP_PORT, config.port());
         client.settings()
-                .getAsMap().entrySet().stream()
+                .getGroups(".").entrySet().stream()
                 .filter(e -> !e.getKey().equals("network.server")) // TODO Check why and/or how to ignore
                 .forEach(e -> eeBuilder.withSetting(e.getKey(), e.getValue()));
 

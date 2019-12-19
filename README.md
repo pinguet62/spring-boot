@@ -22,7 +22,6 @@
         }),
         @EmbeddedElasticsearchIndex(name = "books", types = {
                 @EmbeddedElasticsearchType(name = "paper_book", definition = "classpath:paper-book-mapping.json"),
-                @EmbeddedElasticsearchType(name = "audio_book", definition = "classpath:audio-book-mapping.json")
         })
 })
 class MyTest {}

@@ -1,10 +1,10 @@
 {
-  "paper_book": {
+  "car": {
     "properties": {
-      "author": {
+      "manufacturer": {
         "type": "keyword"
       },
-      "title": {
+      "model": {
         "type": "keyword"
       },
       "description": {

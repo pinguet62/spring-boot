@@ -15,13 +15,12 @@ import static org.junit.Assert.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = SampleConfig.class, properties = "spring.data.elasticsearch.cluster-nodes = localhost:9300")
-@EmbeddedElasticsearch(version = "5.6.0", indexes = {
+@EmbeddedElasticsearch(version = "6.8.0", indexes = {
         @EmbeddedElasticsearchIndex(name = "cars", types = {
-                @EmbeddedElasticsearchType(name = "car", definition = "classpath:cars-template.json"),
+                @EmbeddedElasticsearchType(name = "car", definition = "classpath:cars-mapping.json"),
         }),
         @EmbeddedElasticsearchIndex(name = "books", types = {
                 @EmbeddedElasticsearchType(name = "paper_book", definition = "classpath:paper-book-mapping.json"),
-                @EmbeddedElasticsearchType(name = "audio_book", definition = "classpath:audio-book-mapping.json")
         })
 })
 public class SampleTest {
