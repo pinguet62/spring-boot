@@ -1,6 +1,6 @@
 # *Spring Boot* auto-configuration modules
 
-![https://github.com/pinguet62/spring-boot/actions?workflow=CI](https://github.com/pinguet62/spring-boot/workflows/CI/badge.svg)
+[![https://github.com/pinguet62/spring-boot/actions?workflow=CI](https://github.com/pinguet62/spring-boot/workflows/CI/badge.svg)](https://github.com/pinguet62/spring-boot/actions?query=workflow%3ACI+branch%3Amaster)
 
 ## [Embedded Elasticsearch](https://github.com/allegro/embedded-elasticsearch)
 
